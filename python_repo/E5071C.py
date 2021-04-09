@@ -7,7 +7,7 @@
 
 print('E5063A v1.1.0')
 
-import visa as vx
+import pyvisa as vx
 import DataModule as dm
 import time
 import numpy as np
@@ -15,7 +15,7 @@ import numpy as np
 class VNA(object):
     version = '1.1.0'
     
-    def __init__(self,ip='192.168.0.103',CryoID='Freezer'):
+    def __init__(self,ip='192.168.187.123',CryoID='Freezer'):
         self.version='1.0.5'
         self.v = vx.Instrument(str(ip))
         self.CryoID = CryoID
@@ -178,9 +178,9 @@ class VNA(object):
     
     def temp_reading(self):
         ''' This function return the base temperature and the last update of its reading'''
-        import SensorReader as SR
-        a=SR.SensorReader(self.CryoID)
-        return a.base_temp(),a.last_update()
+        #import SensorReader as SR
+        #a=SR.SensorReader(self.CryoID)
+        #return a.base_temp(),a.last_update()
         
         
     def read_settings(self):
